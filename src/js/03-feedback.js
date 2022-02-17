@@ -5,4 +5,11 @@ const form = document.querySelector('.feedback-form');
 form.addEventListener('input', throttle(inputData, 500));
 
 function inputData(event) {
- }
+    let formData = localStorage.getItem('feedback-form-state');
+
+    formData = formData ? JSON.parse(formData) : {};
+
+    formData[event.target.name] = event.target.value;
+
+    localStorage.setItem('feedback-form-state', JSON.stringify(formData));
+ };
