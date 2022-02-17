@@ -24,7 +24,7 @@ function submitData(event) {
     formData.forEach((key, value) => console.log(`${value}:${key}`));
 
     event.currentTarget.reset();
-    // localStorage.removeItem('feedback-form-state');
+    localStorage.removeItem('feedback-form-state');
 };
  
 function savedDataForm() {
