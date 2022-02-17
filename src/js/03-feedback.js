@@ -17,6 +17,16 @@ function inputData(event) {
     localStorage.setItem('feedback-form-state', JSON.stringify(formDataInput));
 };
  
+function submitData(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    formData.forEach((key, value) => console.log(`${value}:${key}`));
+
+    event.currentTarget.reset();
+    // localStorage.removeItem('feedback-form-state');
+};
+ 
 function savedDataForm() {
     let savedData = localStorage.getItem('feedback-form-state');
     if (savedData) {
@@ -27,7 +37,3 @@ function savedDataForm() {
         ([name, value]) => (form.elements[name].value = value),
     )
 };
- 
-function submitData(event) {
-    event.preventDefault();
- };
